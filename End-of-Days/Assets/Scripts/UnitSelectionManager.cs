@@ -79,35 +79,32 @@ public class UnitSelectionManager : MonoBehaviour
         }
 
         if (unitsSelected.Count > 0 && AtLeastOneOffensiveUnit(unitsSelected)) 
-        {
-            if(Input.GetMouseButtonDown(1) && unitsSelected.Count > 0)
-            {  
-                RaycastHit hit;
-                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-                
-                //if a clickable object is being hit
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, attackable))
+        { 
+            RaycastHit hit;
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            
+            //if a clickable object is being hit
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, attackable))
+            {
+                Debug.Log("Enemy in Sight");
+                attackCursorVisible = true;
+
+                if (Input.GetMouseButtonDown(1))
                 {
-                    Debug.Log("Enemy in Sight");
-                    attackCursorVisible = true;
+                    Transform target = hit.transform;
 
-                    if (Input.GetMouseButtonDown(1))
+                    foreach (GameObject unit in unitsSelected)
                     {
-                        Transform target = hit.transform;
-
-                        foreach (GameObject unit in unitsSelected)
+                        if(unit.GetComponent<AttackController>())
                         {
-                            if(unit.GetComponent<AttackController>())
-                            {
-                                unit.GetComponent<AttackController>().Target = target;
-                            }
+                            unit.GetComponent<AttackController>().targetToAttack = target;
                         }
                     }
                 }
-                else
-                {
-                    attackCursorVisible = false;
-                }
+            }
+            else
+            {
+                attackCursorVisible = false;
             }
         }
     }

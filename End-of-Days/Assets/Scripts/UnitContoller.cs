@@ -30,10 +30,11 @@ public class UnitContoller : MonoBehaviour
                 agent.SetDestination(hit.point);
             }
 
-            if (agent.hasPath == false || agent.remainingDistance <= agent.stoppingDistance)
-            {
-                isCommandedToMove = false;
-            }
+        }
+        
+        if (agent.hasPath == false || agent.remainingDistance <= agent.stoppingDistance)
+        {
+            isCommandedToMove = false;
         }
     }
 }

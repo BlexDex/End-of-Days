@@ -10,13 +10,14 @@ public class UnitIdleState : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
        attackController = animator.transform.GetComponent<AttackController>();
+       attackController.SetIdleMaterial();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         //Checks for an available target
-        if (attackController.Target != null)
+        if (attackController.targetToAttack != null)
         {
             //Transitions to the follow state
             animator.SetBool("isFollowing", true);

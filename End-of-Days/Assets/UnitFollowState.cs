@@ -13,6 +13,7 @@ public class UnitFollowState : StateMachineBehaviour
     {
        attackController = animator.transform.GetComponent<AttackController>();
        agent = animator.transform.GetComponent<NavMeshAgent>();
+       attackController.SetFollowMaterial();
 
     }
 
@@ -22,7 +23,7 @@ public class UnitFollowState : StateMachineBehaviour
        
         // Should Unit Transition to idle state
 
-        if (attackController.Target == null)
+        if (attackController.targetToAttack == null)
         {
             animator.SetBool("isFollowing", false);
         }
@@ -31,15 +32,15 @@ public class UnitFollowState : StateMachineBehaviour
             if (animator.transform.GetComponent<UnitContoller>().isCommandedToMove == false)
             {
                 //Should unit move towards target
-                agent.SetDestination(attackController.Target.position);
-                animator.transform.LookAt(attackController.Target);
+                agent.SetDestination(attackController.targetToAttack.position);
+                animator.transform.LookAt(attackController.targetToAttack);
                 //Should unit transition to attack state
-                // float distanceFromTarget = Vector3.Distance(attackController.Target.position, animator.transform.position);
-                // if (distanceFromTarget < attackingDistance)
-                // {
-                //     agent.SetDestination(animator.transform.position);
-                //     animator.SetBool("isAttacking", true);
-                // }
+                float distanceFromTarget = Vector3.Distance(attackController.targetToAttack.position, animator.transform.position);
+                if (distanceFromTarget < attackingDistance)
+                {
+                    agent.SetDestination(animator.transform.position);
+                    animator.SetBool("isAttacking", true);
+                }
             }
         }
 
