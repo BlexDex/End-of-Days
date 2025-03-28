@@ -176,7 +176,7 @@ public class UnitSelectionManager : MonoBehaviour
 
     private void TriggerUnitMarker(GameObject unit, bool isVisible)
     {
-        unit.transform.GetChild(0).gameObject.SetActive(isVisible);
+        unit.transform.Find("Hexa Select").gameObject.SetActive(isVisible);
     }
 }
 
