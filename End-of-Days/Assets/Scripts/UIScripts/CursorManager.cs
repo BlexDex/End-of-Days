@@ -26,10 +26,10 @@ public class CursorManager : MonoBehaviour
     public GameObject selectableCursor;
     public GameObject attackableCursor;
     public GameObject unAvailableCursor;
+    public GameObject sellCursor;
 
 
-    CursorType currentCursor;
-
+    public CursorType currentCursor;
 
     public enum CursorType
     {
@@ -37,7 +37,8 @@ public class CursorManager : MonoBehaviour
         Walkable,
         UnAvailable,
         Selectable,
-        Attackable
+        Attackable,
+        Sell
     }
 
     void Update()
@@ -95,6 +96,10 @@ public class CursorManager : MonoBehaviour
                 case CursorType.UnAvailable:
                     markerInstance?.SetActive(false);
                     markerInstance = unAvailableCursor;
+                    return;
+                case CursorType.Sell:
+                    markerInstance?.SetActive(false);
+                    markerInstance = sellCursor;
                     return;
                 case CursorType.None:
                     markerInstance?.SetActive(false);

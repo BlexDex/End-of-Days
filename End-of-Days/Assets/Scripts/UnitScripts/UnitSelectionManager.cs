@@ -15,7 +15,9 @@ public class UnitSelectionManager : MonoBehaviour
     public LayerMask clickable;
     public LayerMask ground;
     public LayerMask attackable;
+    public LayerMask building;
     public bool attackCursorVisible;
+
     public GameObject groundMarker;
     
     private Camera cam;
@@ -120,9 +122,17 @@ public class UnitSelectionManager : MonoBehaviour
         {
             CursorManager.Instance.SetMarkerType(CursorManager.CursorType.Selectable);
         }
+        else if(ResourceManager.Instance.placementSystem.inSellMode)
+        {
+            CursorManager.Instance.SetMarkerType(CursorManager.CursorType.Sell);
+        }
         else if(Physics.Raycast(ray, out hit, Mathf.Infinity, attackable) && unitsSelected.Count > 0 && AtLeastOneOffensiveUnit(unitsSelected))
         {
             CursorManager.Instance.SetMarkerType(CursorManager.CursorType.Attackable);
+        }
+        else if(Physics.Raycast(ray, out hit, Mathf.Infinity, building) && unitsSelected.Count > 0)
+        {
+            CursorManager.Instance.SetMarkerType(CursorManager.CursorType.UnAvailable);
         }
         else if(Physics.Raycast(ray, out hit, Mathf.Infinity, ground) && unitsSelected.Count > 0)
         {
@@ -139,7 +149,7 @@ public class UnitSelectionManager : MonoBehaviour
     {
         foreach (GameObject unit in unitsSelected)
             {
-                if(unit.GetComponent<AttackController>())
+                if(unit != null && unit.GetComponent<AttackController>())
                 {
                     return true;
                 }   
@@ -152,13 +162,11 @@ public class UnitSelectionManager : MonoBehaviour
         if (unitsSelected.Contains(unit) == false)
         {
             unitsSelected.Add(unit);
-            TriggerUnitMarker(unit, true);
-            EnableUnitMovement(unit, true);
+            SelectUnit(unit, true);;
         }
         else
         {
-            EnableUnitMovement(unit, false);
-            TriggerUnitMarker(unit, false);
+            SelectUnit(unit, false);;
             unitsSelected.Remove(unit);
         }
     }
@@ -167,8 +175,8 @@ public class UnitSelectionManager : MonoBehaviour
     {
         foreach (var unit in unitsSelected)
         {
-            EnableUnitMovement(unit, false);
             TriggerUnitMarker(unit, false);
+            EnableUnitMovement(unit, false);
         }
         groundMarker.SetActive(false);
         unitsSelected.Clear();
@@ -191,8 +199,14 @@ public class UnitSelectionManager : MonoBehaviour
 
         unitsSelected.Add(unit);
 
-        TriggerUnitMarker(unit, true);
-        EnableUnitMovement(unit, true);
+        SelectUnit(unit, true);
+    }
+
+    private void SelectUnit(GameObject unit, bool isSelected)
+    {
+        SoundManager.Instance.PlaySelectedSound();
+        TriggerUnitMarker(unit, isSelected);
+        EnableUnitMovement(unit, isSelected);
     }
 
     private void EnableUnitMovement(GameObject unit, bool shouldMove)

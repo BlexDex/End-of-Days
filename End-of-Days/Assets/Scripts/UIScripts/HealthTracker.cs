@@ -20,11 +20,14 @@ public class HealthTracker : MonoBehaviour
     // Call this method to update the health bar and color
     public void UpdateSliderValue(float currentHealth, float maxHealth)
     {
+        if (gameObject.activeInHierarchy)
+        {
+
         // Calculate the health percentage
         float healthPercentage = Mathf.Clamp01(currentHealth / maxHealth);
 
         // Update the slider value and size
-       // HealthBarSlider.value = healthPercentage;
+        // HealthBarSlider.value = healthPercentage;
 
 
 
@@ -41,6 +44,8 @@ public class HealthTracker : MonoBehaviour
 
         // Update the color based on health percentage
         UpdateColor(healthPercentage);
+
+        }
     }
 
     // Coroutine for smooth health change

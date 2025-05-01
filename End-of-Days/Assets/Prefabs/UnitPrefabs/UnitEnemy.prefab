@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2362325531000395703}
   - component: {fileID: 9071783847863156657}
   - component: {fileID: 467017145337147913}
-  - component: {fileID: 6737296635710188657}
   - component: {fileID: 8266466570239611368}
   - component: {fileID: 7666661790073151070}
   - component: {fileID: 8307858846160287562}
@@ -139,22 +138,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6737296635710188657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420074593405609999}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 110eab6fcd9609c4eb1863a050b10fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ground:
-    serializedVersion: 2
-    m_Bits: 64
-  isCommandedToMove: 0
 --- !u!114 &8266466570239611368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,9 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetToAttack: {fileID: 0}
-  idleStateMat: {fileID: 2100000, guid: 25a9fa63dbeb9aa4caf6af4416140a1c, type: 2}
-  followStateMat: {fileID: 2100000, guid: a5f7e83ce9693ef488c27f13738a7915, type: 2}
-  attackStateMat: {fileID: 2100000, guid: fbdbbd0f19918f74da2d8f7ce3083775, type: 2}
+  isPlayer: 0
   unitDamage: 10
 --- !u!95 &8307858846160287562
 Animator:

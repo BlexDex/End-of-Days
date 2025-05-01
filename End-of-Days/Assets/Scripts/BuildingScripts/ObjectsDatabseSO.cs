@@ -23,6 +23,13 @@ public class ObjectsDatabseSO : ScriptableObject
 
 }
 
+public enum BuildingType
+{
+    None,
+    HQ,
+    Barracks
+}
+
 [System.Serializable]
 public class ObjectData
 {
@@ -31,6 +38,9 @@ public class ObjectData
 
     [field: SerializeField]
     public int ID { get; private set; }
+
+    [field: SerializeField]
+    public BuildingType thisBuildingType { get; private set; }
 
     [field: SerializeField]
     [TextArea(3, 10)]
@@ -43,7 +53,9 @@ public class ObjectData
     public GameObject Prefab { get; private set; }
 
     [field: SerializeField]
-    public List<BuildRequirement> requirements { get; private set; }
+    public List<BuildRequirement> resourceRequirements { get; private set; }
+    [field: SerializeField]
+    public List<BuildingType> buildDependecies { get; private set; }
 
     [field: SerializeField]
     public List<BuildBenefits> benefits { get; private set; }
@@ -54,7 +66,7 @@ public class ObjectData
 [System.Serializable]
 public class BuildRequirement
 {
-    public string resource;
+    public ResourceManager.ResourceType resource;
     public int amount;
 }
 

@@ -15,8 +15,23 @@ MonoBehaviour:
   objectsData:
   - <Name>k__BackingField: HQ
     <ID>k__BackingField: 0
+    <thisBuildingType>k__BackingField: 1
     description: 
-    <Size>k__BackingField: {x: 7, y: 6}
+    <Size>k__BackingField: {x: 4, y: 4}
     <Prefab>k__BackingField: {fileID: 2801327734905802212, guid: 9d3e1294047616b4b81a50d05039fa28, type: 3}
-    <requirements>k__BackingField: []
+    <resourceRequirements>k__BackingField:
+    - resource: 0
+      amount: 150
+    <buildDependecies>k__BackingField: 00000000
+    <benefits>k__BackingField: []
+  - <Name>k__BackingField: Barracks
+    <ID>k__BackingField: 1
+    <thisBuildingType>k__BackingField: 2
+    description: 
+    <Size>k__BackingField: {x: 3, y: 3}
+    <Prefab>k__BackingField: {fileID: 1601759075865661705, guid: 02059cd708b6b484a9b48f99d5d22a9a, type: 3}
+    <resourceRequirements>k__BackingField:
+    - resource: 0
+      amount: 200
+    <buildDependecies>k__BackingField: 01000000
     <benefits>k__BackingField: []

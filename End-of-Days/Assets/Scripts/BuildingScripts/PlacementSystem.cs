@@ -22,6 +22,7 @@ public class PlacementSystem : MonoBehaviour
     int selectedID;
 
     IBuildingState buildingState;
+    public bool inSellMode;
 
     private void Start()
     {
@@ -45,8 +46,15 @@ public class PlacementSystem : MonoBehaviour
 
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnExit += StopPlacement;
+
+        inputManager.OnClicked += EndSelling;
+        inputManager.OnExit += EndSelling;
     }
 
+    public void RemovePlacmentData(Vector3 position)
+    {
+        floorData.RemoveObjectAt(grid.WorldToCell(position));
+    }
     public void StartRemoving()
     {
         StopPlacement();
@@ -57,12 +65,16 @@ public class PlacementSystem : MonoBehaviour
         inputManager.OnExit += StopPlacement;
     }
 
+    private void EndSelling()
+    {
+        inSellMode = false;
+    }
     private void PlaceStructure()
     {
-        if(inputManager.IsPointerOverUI()){
-            Debug.Log("Pointer was over UI - Returned");
-            return;
-        }
+        // if(inputManager.IsPointerOverUI()){
+        //     Debug.Log("Pointer was over UI - Returned");
+        //     return;
+        // }
         // When we click on a cell, we get the cell
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();
         Vector3Int gridPosition = grid.WorldToCell(mousePosition);
@@ -111,6 +123,11 @@ public class PlacementSystem : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            inSellMode =  true;
+            StartRemoving();
+        }
         // We return because we did not selected an item to place (not in placement mode)
         // So there is no need to show cell indicator
         if (buildingState == null)
