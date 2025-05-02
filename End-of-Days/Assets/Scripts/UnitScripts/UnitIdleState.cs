@@ -17,11 +17,17 @@ public class UnitIdleState : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         //Checks for an available target
+        animator.SetBool("isIdle", true);
         if (attackController.targetToAttack != null)
         {
             //Transitions to the follow state
             animator.SetBool("isFollowing", true);
         }
        
+    }
+
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        animator.SetBool("isIdle", false);
     }
 }

@@ -11,15 +11,18 @@ public class UnitContoller : MonoBehaviour
     public LayerMask ground;
 
     Animator animator;
+    [SerializeField] private GameObject unitSelector;
 
     public bool isCommandedToMove;
 
     DirectionIndicator directionIdicator;
+    AttackController attackController;
     private void Start()
     {
         cam = Camera.main;
         agent = GetComponent<NavMeshAgent>();
-
+        unitSelector = GameObject.FindGameObjectWithTag("Unit Selector");
+        attackController = GetComponent<AttackController>();
         directionIdicator = GetComponent<DirectionIndicator>();
     }
 
@@ -30,11 +33,12 @@ public class UnitContoller : MonoBehaviour
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground) && !unitSelector.GetComponent<UnitSelectionManager>().enemyInSight)
             {
                 isCommandedToMove = true;
                 StartCoroutine(NoCommand());
                 agent.SetDestination(hit.point);
+                attackController.targetToAttack = null;
 
                 SoundManager.Instance.PlayCommandedSound();
 
@@ -42,15 +46,10 @@ public class UnitContoller : MonoBehaviour
             }
 
         }
-        
-        // if (agent.hasPath == false || agent.remainingDistance <= agent.stoppingDistance)
-        // {
-        //     isCommandedToMove = false;
-        // }
 
         IEnumerator NoCommand()
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(3);
             isCommandedToMove = false;
         }
     }

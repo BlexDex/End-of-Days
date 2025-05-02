@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlacementSystem : MonoBehaviour
@@ -14,6 +15,7 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private GridData floorData, furnitureData; // floor things like roads, furniture change to "buildings"
 
     [SerializeField] private PreviewSystem previewSystem;
+    public Vector3 HQLocation;
 
     private Vector3Int lastDetectedPosition = Vector3Int.zero;
 
@@ -29,6 +31,9 @@ public class PlacementSystem : MonoBehaviour
 
         floorData = new();
         furnitureData = new();
+        
+        inputManager.OnClicked += EndSelling;
+        inputManager.OnExit += EndSelling;
     }
 
     public void StartPlacement(int ID)
@@ -51,7 +56,7 @@ public class PlacementSystem : MonoBehaviour
         inputManager.OnExit += EndSelling;
     }
 
-    public void RemovePlacmentData(Vector3 position)
+        public void RemovePlacmentData(Vector3 position)
     {
         floorData.RemoveObjectAt(grid.WorldToCell(position));
     }
@@ -65,16 +70,17 @@ public class PlacementSystem : MonoBehaviour
         inputManager.OnExit += StopPlacement;
     }
 
-    private void EndSelling()
+        private void EndSelling()
     {
         inSellMode = false;
     }
+
     private void PlaceStructure()
     {
-        // if(inputManager.IsPointerOverUI()){
-        //     Debug.Log("Pointer was over UI - Returned");
-        //     return;
-        // }
+        if(inputManager.IsPointerOverUI()){
+            Debug.Log("Pointer was over UI - Returned");
+            return;
+        }
         // When we click on a cell, we get the cell
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();
         Vector3Int gridPosition = grid.WorldToCell(mousePosition);
@@ -85,6 +91,10 @@ public class PlacementSystem : MonoBehaviour
         // ---- Using the ID remove used resources from resource manager ---- // 
         ObjectData ob = database.GetObjectByID(selectedID);
        // ResourceManager.Instance.RemoveResourcesBasedOnRequirements(ob, database);
+       if (selectedID == 0)
+       {
+            HQLocation = gameObject.transform.position;
+       }
 
         // ---- Add Buildable Benifits ---- // 
         foreach (BuildBenefits bf in ob.benefits)

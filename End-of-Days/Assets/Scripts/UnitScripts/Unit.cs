@@ -28,6 +28,7 @@ public class Unit : MonoBehaviour, IDamageable
     private void OnDestroy()
     {
         UnitSelectionManager.Instance.allUnitsList.Remove(gameObject);
+        UnitSelectionManager.Instance.unitsSelected.Remove(gameObject);
     }
 
     private void UpdateHealthUI()

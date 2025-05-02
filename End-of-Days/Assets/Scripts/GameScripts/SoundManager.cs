@@ -37,18 +37,23 @@ public class SoundManager : MonoBehaviour
         unitAttackChannel.volume = 1f;
         unitAttackChannel.playOnAwake = false;
 
-        unitAttackChannel = gameObject.AddComponent<AudioSource>();
-        unitAttackChannel.volume = 1f;
-        unitAttackChannel.playOnAwake = false;
-
-        unitAttackChannel = gameObject.AddComponent<AudioSource>();
-        unitAttackChannel.volume = 1f;
-        unitAttackChannel.playOnAwake = false;
-        
-        //Building Sounds
         unitOtherChannel = gameObject.AddComponent<AudioSource>();
         unitOtherChannel.volume = 1f;
         unitOtherChannel.playOnAwake = false;
+        
+        //Building Sounds
+
+        constructionBuildingChannel = gameObject.AddComponent<AudioSource>();
+        constructionBuildingChannel.volume = 1f;
+        constructionBuildingChannel.playOnAwake = false;
+
+        destructionBuildingChannel = gameObject.AddComponent<AudioSource>();
+        destructionBuildingChannel.volume = 1f;
+        destructionBuildingChannel.playOnAwake = false;
+
+        otherBuildingChannel = gameObject.AddComponent<AudioSource>();
+        otherBuildingChannel.volume = 1f;
+        otherBuildingChannel.playOnAwake = false;
 
     }
 
@@ -61,14 +66,14 @@ public class SoundManager : MonoBehaviour
     }
     public void PlaySellingBuildinSound()
     {
-        if(unitAttackChannel.isPlaying == false)
+        if(otherBuildingChannel.isPlaying == false)
         {
             otherBuildingChannel.PlayOneShot(sellSound);
         }
     }
     public void PlayConstructBuildingSound()
     {
-        if(unitAttackChannel.isPlaying == false)
+        if(constructionBuildingChannel.isPlaying == false)
         {
             constructionBuildingChannel.PlayOneShot(buildingSound);
         }
@@ -77,7 +82,7 @@ public class SoundManager : MonoBehaviour
     {
         if(destructionBuildingChannel.isPlaying == false)
         {
-            unitAttackChannel.PlayOneShot(destructionSound);
+            destructionBuildingChannel.PlayOneShot(destructionSound);
         }
     }
 

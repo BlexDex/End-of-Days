@@ -17,6 +17,7 @@ public class UnitSelectionManager : MonoBehaviour
     public LayerMask attackable;
     public LayerMask building;
     public bool attackCursorVisible;
+    public bool enemyInSight;
 
     public GameObject groundMarker;
     
@@ -37,9 +38,8 @@ public class UnitSelectionManager : MonoBehaviour
             Instance = this;
         }
     }
-
     private void Update() 
-    {
+        {
       if(Input.GetMouseButtonDown(0))
         {  
             RaycastHit hit;
@@ -89,6 +89,7 @@ public class UnitSelectionManager : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, attackable))
             {
                 Debug.Log("Enemy in Sight");
+                enemyInSight = true;
                 attackCursorVisible = true;
 
                 if (Input.GetMouseButtonDown(1))
@@ -106,6 +107,7 @@ public class UnitSelectionManager : MonoBehaviour
             }
             else
             {
+                enemyInSight = false;
                 attackCursorVisible = false;
             }
         }

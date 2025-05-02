@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Unit
+  - Unit Selector
   layers:
   - Default
   - TransparentFX
