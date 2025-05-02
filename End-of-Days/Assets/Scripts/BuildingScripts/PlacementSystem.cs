@@ -56,7 +56,7 @@ public class PlacementSystem : MonoBehaviour
         inputManager.OnExit += EndSelling;
     }
 
-        public void RemovePlacmentData(Vector3 position)
+    public void RemovePlacmentData(Vector3 position)
     {
         floorData.RemoveObjectAt(grid.WorldToCell(position));
     }
@@ -70,7 +70,7 @@ public class PlacementSystem : MonoBehaviour
         inputManager.OnExit += StopPlacement;
     }
 
-        private void EndSelling()
+    private void EndSelling()
     {
         inSellMode = false;
     }
