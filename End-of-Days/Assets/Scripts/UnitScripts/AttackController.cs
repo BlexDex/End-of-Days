@@ -23,6 +23,10 @@ public class AttackController : MonoBehaviour
         {
             targetToAttack = other.transform;
         }
+        if(!isPlayer && other.CompareTag("Building") && targetToAttack == null)
+        {
+            targetToAttack = other.transform;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -36,6 +40,11 @@ public class AttackController : MonoBehaviour
         {
             targetToAttack = other.transform;
         }
+        if(!isPlayer && other.CompareTag("Building") && targetToAttack == null)
+        {
+            targetToAttack = other.transform;
+        }
+        
     }
     private void OnTriggerExit(Collider other)
     {
@@ -44,6 +53,10 @@ public class AttackController : MonoBehaviour
             targetToAttack = null;
         }
         if(!isPlayer && other.CompareTag("Unit") && targetToAttack != null)
+        {
+            targetToAttack = null;
+        }
+        if(!isPlayer && other.CompareTag("Building") && targetToAttack != null)
         {
             targetToAttack = null;
         }

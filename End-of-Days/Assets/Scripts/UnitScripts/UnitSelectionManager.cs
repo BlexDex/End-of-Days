@@ -39,7 +39,8 @@ public class UnitSelectionManager : MonoBehaviour
         }
     }
     private void Update() 
-        {
+    {
+
       if(Input.GetMouseButtonDown(0))
         {  
             RaycastHit hit;
@@ -64,6 +65,7 @@ public class UnitSelectionManager : MonoBehaviour
                     DeselectAll();
                 }
             }
+
         }
 
         if(Input.GetMouseButtonDown(1) && unitsSelected.Count > 0)
@@ -111,6 +113,7 @@ public class UnitSelectionManager : MonoBehaviour
                 attackCursorVisible = false;
             }
         }
+
 
         CursorSelector();
     }

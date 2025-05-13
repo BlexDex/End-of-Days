@@ -35,3 +35,36 @@ MonoBehaviour:
       amount: 200
     <buildDependecies>k__BackingField: 01000000
     <benefits>k__BackingField: []
+  - <Name>k__BackingField: Coop
+    <ID>k__BackingField: 2
+    <thisBuildingType>k__BackingField: 0
+    description: 
+    <Size>k__BackingField: {x: 3, y: 3}
+    <Prefab>k__BackingField: {fileID: 763589118346247956, guid: 49ceaac1a1ec8854ba0b6753653090a3, type: 3}
+    <resourceRequirements>k__BackingField:
+    - resource: 0
+      amount: 200
+    <buildDependecies>k__BackingField: 01000000
+    <benefits>k__BackingField: []
+  - <Name>k__BackingField: Wall_1
+    <ID>k__BackingField: 3
+    <thisBuildingType>k__BackingField: 0
+    description: 
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 5241516398676507372, guid: 19a642bf16c8ebc408bedcaff9fc3c9a, type: 3}
+    <resourceRequirements>k__BackingField:
+    - resource: 0
+      amount: 200
+    <buildDependecies>k__BackingField: 01000000
+    <benefits>k__BackingField: []
+  - <Name>k__BackingField: Wall_2
+    <ID>k__BackingField: 4
+    <thisBuildingType>k__BackingField: 0
+    description: 
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 1042579458485462208, guid: fd737a9b24ff0a944ba73bdb8a6eeede, type: 3}
+    <resourceRequirements>k__BackingField:
+    - resource: 0
+      amount: 200
+    <buildDependecies>k__BackingField: 01000000
+    <benefits>k__BackingField: []

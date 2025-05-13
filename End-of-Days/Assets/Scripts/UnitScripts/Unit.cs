@@ -48,7 +48,7 @@ public class Unit : MonoBehaviour, IDamageable
 
     private void Update()
     {
-         if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
+        if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
         {
             animator.SetBool("isMoving", true);
         }

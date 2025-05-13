@@ -39,12 +39,7 @@ namespace DenisAlipov.GameTime
             {
                 // Debug.Log("Spawning Enemies");
                 float numOfEnemies = Mathf.Round(newTime.Days * 2);
-                
-                for(int i = 0; i < numOfEnemies; i++)
-                {
-                    int randomInt = Random.Range(0,4);
-                    Instantiate(enemyPrefab, spawnLocations[randomInt].transform.position, Quaternion.identity);
-                }
+                StartCoroutine(SpawnDelay(numOfEnemies));
                 lastActionHour = newTimeHours;
                 return;
             }
@@ -54,5 +49,20 @@ namespace DenisAlipov.GameTime
                 return;
             }
         }
-    }
+
+        private IEnumerator SpawnDelay(float numEnemies)
+        {
+        for(int i = 0; i < numEnemies; i++)
+        {
+            Spawn();
+            yield return new WaitForSeconds(1);
+        }
+        }
+
+        private void Spawn() 
+        {
+            int randomInt = Random.Range(0, spawnLocations.Length);
+            Instantiate(enemyPrefab, spawnLocations[randomInt].transform.position, Quaternion.identity);
+        }
+        }
 }

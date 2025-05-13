@@ -35,6 +35,11 @@ public class Constructable : MonoBehaviour, IDamageable
             SoundManager.Instance.PlayDestroyBuildingSound();
 
             Destroy(gameObject);
+
+            if (buildingType.ToString() == "HQ")
+            {
+                Debug.Log("Game Over");
+            }
         }
     }
 
@@ -56,11 +61,6 @@ public class Constructable : MonoBehaviour, IDamageable
         healthTracker.gameObject.SetActive(true);
         
         ActivateObstacle();
-
-        if (isEnemy)
-        {
-            gameObject.tag = "Enemy";   
-        }
     }
 
     private void ActivateObstacle()

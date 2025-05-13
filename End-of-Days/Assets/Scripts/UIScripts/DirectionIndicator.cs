@@ -19,6 +19,7 @@ public class DirectionIndicator : MonoBehaviour
     private void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.positionCount = 0;
     }
 
     public void DrawLine(RaycastHit hit)

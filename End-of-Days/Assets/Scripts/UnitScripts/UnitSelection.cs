@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
  
 public class UnitSelection : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class UnitSelection : MonoBehaviour
  
     [SerializeField]
     RectTransform boxVisual;
- 
+    private bool clickingUI;
     Rect selectionBox;
  
     Vector2 startPosition;
@@ -24,38 +25,56 @@ public class UnitSelection : MonoBehaviour
  
     private void Update()
     {
-        // When Clicked
+
         if (Input.GetMouseButtonDown(0))
         {
-            startPosition = Input.mousePosition;
- 
-            // For selection the Units
-            selectionBox = new Rect();
-        }
- 
-        // When Dragging
-        if (Input.GetMouseButton(0))
-        {
-            if (boxVisual.rect.width > 0 || boxVisual.rect.height > 0)
+            // Check if the mouse was clicked over a UI element
+            if (EventSystem.current.IsPointerOverGameObject())
             {
-                UnitSelectionManager.Instance.DeselectAll();
-                SelectUnits();
+                clickingUI = true;
             }
-        
-            endPosition = Input.mousePosition;
-            DrawVisual();
-            DrawSelection();
+            else
+            {
+                clickingUI = false;
+            }
         }
- 
-        // When Releasing
-        if (Input.GetMouseButtonUp(0))
+
+        if (!clickingUI)
         {
-            SelectUnits();
- 
-            startPosition = Vector2.zero;
-            endPosition = Vector2.zero;
-            DrawVisual();
+            if (Input.GetMouseButtonDown(0))
+            {
+                startPosition = Input.mousePosition;
+    
+                // For selection the Units
+                selectionBox = new Rect();
+            }
+    
+            // When Dragging
+            if (Input.GetMouseButton(0))
+            {
+                if (boxVisual.rect.width > 0 || boxVisual.rect.height > 0)
+                {
+                    UnitSelectionManager.Instance.DeselectAll();
+                    SelectUnits();
+                }
+            
+                endPosition = Input.mousePosition;
+                DrawVisual();
+                DrawSelection();
+            }
+    
+            // When Releasing
+            if (Input.GetMouseButtonUp(0))
+            {
+                SelectUnits();
+    
+                startPosition = Vector2.zero;
+                endPosition = Vector2.zero;
+                DrawVisual();
+            }
+
         }
+        // When Clicked
     }
  
     void DrawVisual()
