@@ -8,7 +8,6 @@ using UnityEngine.UIElements;
 public class UnitSelectionManager : MonoBehaviour
 {
     public static UnitSelectionManager Instance {get; set;}
-
     public List<GameObject> allUnitsList = new List<GameObject>();
     public List<GameObject> unitsSelected = new List<GameObject>();
 
@@ -37,6 +36,7 @@ public class UnitSelectionManager : MonoBehaviour
         {
             Instance = this;
         }
+
     }
     private void Update() 
     {
@@ -209,7 +209,20 @@ public class UnitSelectionManager : MonoBehaviour
 
     private void SelectUnit(GameObject unit, bool isSelected)
     {
-        SoundManager.Instance.PlaySelectedSound();
+        var controller = unit.GetComponent<UnitContoller>();
+        
+        switch (controller.type)
+         {
+            case UnitContoller.UnitType.Human:
+                SoundManager.Instance.PlaySelectedSound();
+                break;
+            case UnitContoller.UnitType.Dog:
+                SoundManager.Instance.PlayDogSelectedSound();
+                break;
+            default:
+                break;
+        }
+
         TriggerUnitMarker(unit, isSelected);
         EnableUnitMovement(unit, isSelected);
     }

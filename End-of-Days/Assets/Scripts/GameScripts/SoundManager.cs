@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -10,8 +13,12 @@ public class SoundManager : MonoBehaviour
     private AudioSource unitAttackChannel;
     private AudioSource unitOtherChannel;
     public AudioClip meleeAttackClip;
+    public AudioClip rangedAttackClip;
+    public AudioClip dogAttackClip;
     public AudioClip unitSelectedClip;
+    public AudioClip dogSelectedClip;
     public AudioClip unitCommandedClip;
+    public AudioClip dogCommandedClip;
     [Header("Buildings")]
     private AudioSource constructionBuildingChannel;
     private AudioSource destructionBuildingChannel;
@@ -64,6 +71,20 @@ public class SoundManager : MonoBehaviour
             unitAttackChannel.PlayOneShot(meleeAttackClip);
         }
     }
+    public void PlayDogAttackSound()
+    {
+        if(unitAttackChannel.isPlaying == false)
+        {
+            unitAttackChannel.PlayOneShot(dogAttackClip);
+        }
+    }
+    public void PlayRangedAttackSound()
+    {
+        if(unitAttackChannel.isPlaying == false)
+        {
+            unitAttackChannel.PlayOneShot(rangedAttackClip);
+        }
+    }
     public void PlaySellingBuildinSound()
     {
         if(otherBuildingChannel.isPlaying == false)
@@ -86,18 +107,34 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-        public void PlaySelectedSound()
+    public void PlaySelectedSound()
     {
         if(unitOtherChannel.isPlaying == false)
         {
             unitOtherChannel.PlayOneShot(unitSelectedClip);
         }
     }
+
+    public void PlayDogSelectedSound()
+    {
+        if(unitOtherChannel.isPlaying == false)
+        {
+            unitOtherChannel.PlayOneShot(dogSelectedClip);
+        }
+    }
+
     public void PlayCommandedSound()
     {
         if(unitOtherChannel.isPlaying == false)
         {
             unitOtherChannel.PlayOneShot(unitCommandedClip);
+        }
+    }
+    public void PlayDogCommandedSound()
+    {
+        if(unitOtherChannel.isPlaying == false)
+        {
+            unitOtherChannel.PlayOneShot(dogCommandedClip);
         }
     }
 }

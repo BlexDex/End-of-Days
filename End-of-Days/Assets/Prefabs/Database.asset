@@ -37,7 +37,7 @@ MonoBehaviour:
     <benefits>k__BackingField: []
   - <Name>k__BackingField: Coop
     <ID>k__BackingField: 2
-    <thisBuildingType>k__BackingField: 0
+    <thisBuildingType>k__BackingField: 7
     description: 
     <Size>k__BackingField: {x: 3, y: 3}
     <Prefab>k__BackingField: {fileID: 763589118346247956, guid: 49ceaac1a1ec8854ba0b6753653090a3, type: 3}
@@ -55,7 +55,7 @@ MonoBehaviour:
     <resourceRequirements>k__BackingField:
     - resource: 0
       amount: 200
-    <buildDependecies>k__BackingField: 01000000
+    <buildDependecies>k__BackingField: 0100000003000000
     <benefits>k__BackingField: []
   - <Name>k__BackingField: Wall_2
     <ID>k__BackingField: 4
@@ -63,6 +63,50 @@ MonoBehaviour:
     description: 
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 1042579458485462208, guid: fd737a9b24ff0a944ba73bdb8a6eeede, type: 3}
+    <resourceRequirements>k__BackingField:
+    - resource: 0
+      amount: 200
+    <buildDependecies>k__BackingField: 0300000001000000
+    <benefits>k__BackingField: []
+  - <Name>k__BackingField: Kennel
+    <ID>k__BackingField: 5
+    <thisBuildingType>k__BackingField: 4
+    description: 
+    <Size>k__BackingField: {x: 3, y: 3}
+    <Prefab>k__BackingField: {fileID: 3563481753088552129, guid: 879881bbc4bbcda4c8948c6956782a48, type: 3}
+    <resourceRequirements>k__BackingField:
+    - resource: 0
+      amount: 200
+    <buildDependecies>k__BackingField: 0100000005000000
+    <benefits>k__BackingField: []
+  - <Name>k__BackingField: RangerTower
+    <ID>k__BackingField: 6
+    <thisBuildingType>k__BackingField: 5
+    description: 
+    <Size>k__BackingField: {x: 4, y: 4}
+    <Prefab>k__BackingField: {fileID: 7771150867466806342, guid: 880759eda74d92a439aceaf1805786b4, type: 3}
+    <resourceRequirements>k__BackingField:
+    - resource: 0
+      amount: 200
+    <buildDependecies>k__BackingField: 0100000002000000
+    <benefits>k__BackingField: []
+  - <Name>k__BackingField: Market
+    <ID>k__BackingField: 7
+    <thisBuildingType>k__BackingField: 6
+    description: 
+    <Size>k__BackingField: {x: 3, y: 3}
+    <Prefab>k__BackingField: {fileID: 8455591542479421417, guid: 00f93aa15cce17645b5be925ccdfb418, type: 3}
+    <resourceRequirements>k__BackingField:
+    - resource: 0
+      amount: 200
+    <buildDependecies>k__BackingField: 01000000
+    <benefits>k__BackingField: []
+  - <Name>k__BackingField: Sawmill
+    <ID>k__BackingField: 8
+    <thisBuildingType>k__BackingField: 3
+    description: 
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Prefab>k__BackingField: {fileID: 8618085757165234669, guid: 1aacd61ad162c4a479491a290dce0d5d, type: 3}
     <resourceRequirements>k__BackingField:
     - resource: 0
       amount: 200

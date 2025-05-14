@@ -27,7 +27,12 @@ public enum BuildingType
 {
     None,
     HQ,
-    Barracks
+    Barracks,
+    Sawmill,
+    Kennels,
+    RangerTower,
+    Market,
+    Coop
 }
 
 [System.Serializable]

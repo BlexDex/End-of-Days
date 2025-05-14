@@ -26,7 +26,7 @@ public class Barracks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ResourceManager.Instance.GetResourceAmount(ResourceManager.ResourceType.Credits) >= 50)
+        if (ResourceManager.Instance.GetResourceAmount(ResourceManager.ResourceType.Food) >= 50)
         {
             isAvailable = true;
         }

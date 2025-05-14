@@ -6,6 +6,13 @@ using UnityEngine.AI;
 
 public class UnitContoller : MonoBehaviour
 {
+
+    public enum UnitType
+    {
+        Human,
+        Dog
+    }
+    [SerializeField] public UnitType type;
     Camera cam;
     NavMeshAgent agent;
     public LayerMask ground;
@@ -39,7 +46,18 @@ public class UnitContoller : MonoBehaviour
                 StartCoroutine(NoCommand());
                 agent.SetDestination(hit.point);
                 attackController.targetToAttack = null;
-
+                
+                switch (type)
+                {
+                    case UnitType.Human:
+                        SoundManager.Instance.PlayCommandedSound();
+                        break;
+                    case UnitType.Dog:
+                        SoundManager.Instance.PlayDogCommandedSound();
+                        break;
+                    default:
+                        break;
+                }
                 SoundManager.Instance.PlayCommandedSound();
 
                 directionIdicator.DrawLine(hit);

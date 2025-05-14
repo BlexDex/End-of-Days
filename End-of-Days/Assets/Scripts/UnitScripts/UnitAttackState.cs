@@ -1,12 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Security;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class UnitAttackState : StateMachineBehaviour
 {
+    private enum UnitType {
+        Melee,
+        Ranged,
+        Dog
+    }
+    [SerializeField] private UnitType type; 
     NavMeshAgent agent;
     AttackController attackController;
+   
 
     public float stopAttackingDistance = 1.2f;
 
@@ -61,9 +71,23 @@ public class UnitAttackState : StateMachineBehaviour
 
     private void Attack()
     {
-        var damageToInflict = attackController.unitDamage;
 
-        SoundManager.Instance.PlayMeleeAttackSound();
+        var damageToInflict = attackController.unitDamage; 
+
+        switch (type)
+        {
+            case UnitType.Melee:
+                SoundManager.Instance.PlayMeleeAttackSound();
+                break;
+            case UnitType.Ranged:
+                SoundManager.Instance.PlayRangedAttackSound();
+                break;
+            case UnitType.Dog:
+                SoundManager.Instance.PlayDogAttackSound();
+                break;
+            default:
+                break;
+        }
 
         var damageable = attackController.targetToAttack.GetComponent<IDamageable>();
         if (damageable != null)
