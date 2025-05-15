@@ -21,8 +21,8 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    private int credits = 10000;
-    private int food = 100;
+    private int credits = 500;
+    private int food = 200;
 
     private void Start()
     {
@@ -127,16 +127,6 @@ public class ResourceManager : MonoBehaviour
         int amountToReturn = (int)(sellingPrice * 0.5f);
 
         IncreaseResource(ResourceType.Credits, amountToReturn);
-    }
-
-    public void AwardPlayer()
-    {
-        IncreaseResource(ResourceType.Credits, 50);
-    }
-
-    public void BuildMeleeUnit()
-    {
-        DecreaseResource(ResourceType.Food, 50);
     }
     private void UpdateUI()
     {

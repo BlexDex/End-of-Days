@@ -58,7 +58,6 @@ public class UnitContoller : MonoBehaviour
                     default:
                         break;
                 }
-                SoundManager.Instance.PlayCommandedSound();
 
                 directionIdicator.DrawLine(hit);
             }

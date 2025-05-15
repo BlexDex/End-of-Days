@@ -11,7 +11,8 @@ public class Constructable : MonoBehaviour, IDamageable
     private float constHealth;
     public float constMaxHealth;
     public HealthTracker healthTracker;
-    public bool isEnemy = false;
+    [SerializeField] GameObject destroyParticles;
+    public bool isEnemy = true;
 
     NavMeshObstacle obstacle;
     public BuildingType buildingType;
@@ -34,20 +35,27 @@ public class Constructable : MonoBehaviour, IDamageable
 
             SoundManager.Instance.PlayDestroyBuildingSound();
 
+            GameObject tempParticles = Instantiate(destroyParticles.gameObject, this.gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
+            Destroy(tempParticles, 5.0f);
+
             Destroy(gameObject);
 
             if (buildingType.ToString() == "HQ")
             {
                 Debug.Log("Game Over");
+                InGameMenu.Instance.LoseGame();
             }
         }
     }
 
     private void OnDestroy()
     {
-        if (constHealth > 0 && buildPosition != Vector3.zero)
+        if (!isEnemy)
         {
-            ResourceManager.Instance.SellBuilding(buildingType);
+            if (constHealth > 0 && buildPosition != Vector3.zero)
+            {
+                ResourceManager.Instance.SellBuilding(buildingType);
+            }
         }
     }
     public void TakeDamage(int damage)

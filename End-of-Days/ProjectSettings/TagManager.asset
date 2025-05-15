@@ -8,6 +8,8 @@ TagManager:
   - Unit
   - Unit Selector
   - Building
+  - EnemySpawner
+  - Environment
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - CursorPriority
   - Building
   - MiniMapUI
-  - 
+  - Environment
   - 
   - 
   - 

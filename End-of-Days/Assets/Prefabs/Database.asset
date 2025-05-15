@@ -21,7 +21,7 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 2801327734905802212, guid: 9d3e1294047616b4b81a50d05039fa28, type: 3}
     <resourceRequirements>k__BackingField:
     - resource: 0
-      amount: 150
+      amount: 0
     <buildDependecies>k__BackingField: 00000000
     <benefits>k__BackingField: []
   - <Name>k__BackingField: Barracks
@@ -32,7 +32,7 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 1601759075865661705, guid: 02059cd708b6b484a9b48f99d5d22a9a, type: 3}
     <resourceRequirements>k__BackingField:
     - resource: 0
-      amount: 200
+      amount: 150
     <buildDependecies>k__BackingField: 01000000
     <benefits>k__BackingField: []
   - <Name>k__BackingField: Coop
@@ -43,7 +43,7 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 763589118346247956, guid: 49ceaac1a1ec8854ba0b6753653090a3, type: 3}
     <resourceRequirements>k__BackingField:
     - resource: 0
-      amount: 200
+      amount: 100
     <buildDependecies>k__BackingField: 01000000
     <benefits>k__BackingField: []
   - <Name>k__BackingField: Wall_1
@@ -54,7 +54,7 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 5241516398676507372, guid: 19a642bf16c8ebc408bedcaff9fc3c9a, type: 3}
     <resourceRequirements>k__BackingField:
     - resource: 0
-      amount: 200
+      amount: 25
     <buildDependecies>k__BackingField: 0100000003000000
     <benefits>k__BackingField: []
   - <Name>k__BackingField: Wall_2
@@ -65,7 +65,7 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 1042579458485462208, guid: fd737a9b24ff0a944ba73bdb8a6eeede, type: 3}
     <resourceRequirements>k__BackingField:
     - resource: 0
-      amount: 200
+      amount: 25
     <buildDependecies>k__BackingField: 0300000001000000
     <benefits>k__BackingField: []
   - <Name>k__BackingField: Kennel
@@ -76,7 +76,7 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 3563481753088552129, guid: 879881bbc4bbcda4c8948c6956782a48, type: 3}
     <resourceRequirements>k__BackingField:
     - resource: 0
-      amount: 200
+      amount: 400
     <buildDependecies>k__BackingField: 0100000005000000
     <benefits>k__BackingField: []
   - <Name>k__BackingField: RangerTower
@@ -87,7 +87,7 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 7771150867466806342, guid: 880759eda74d92a439aceaf1805786b4, type: 3}
     <resourceRequirements>k__BackingField:
     - resource: 0
-      amount: 200
+      amount: 250
     <buildDependecies>k__BackingField: 0100000002000000
     <benefits>k__BackingField: []
   - <Name>k__BackingField: Market
@@ -109,6 +109,6 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 8618085757165234669, guid: 1aacd61ad162c4a479491a290dce0d5d, type: 3}
     <resourceRequirements>k__BackingField:
     - resource: 0
-      amount: 200
+      amount: 150
     <buildDependecies>k__BackingField: 01000000
     <benefits>k__BackingField: []

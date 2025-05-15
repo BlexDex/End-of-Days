@@ -7854,7 +7854,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f229b91f227e00747b8c7bb8f71d3a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitMaxHealth: 100
+  type: 1
+  unitMaxHealth: 75
+  deathParticles: {fileID: 6043280456144304848, guid: f68077079c54d864eb82edb6ec144e59, type: 3}
   healthTracker: {fileID: 9024786982047597932}
 --- !u!114 &1046700624261331877
 MonoBehaviour:

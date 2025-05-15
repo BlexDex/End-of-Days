@@ -191,7 +191,18 @@ public class RTSCameraController : MonoBehaviour
     }
 
 
-
+    public void SetWASDBool(bool isActive)
+    {
+        moveWithKeyboard = isActive;
+    }
+    public void SetEdgeScrollBool(bool isActive)
+    {
+        moveWithEdgeScrolling = isActive;
+    }
+    public void SetDragClickBool(bool isActive)
+    {
+        moveWithMouseDrag = isActive;
+    }
     private void HandleMouseDragInput()
     {
         if (Input.GetMouseButtonDown(2) && EventSystem.current.IsPointerOverGameObject() == false)

@@ -38,7 +38,7 @@ namespace DenisAlipov.GameTime
             {
                 if(!hasRun)
                 {
-                    ResourceManager.Instance.IncreaseResource(ResourceManager.ResourceType.Food, 25);
+                    ResourceManager.Instance.IncreaseResource(ResourceManager.ResourceType.Food, 50);
                 }
                 hasRun = true;
                 return;

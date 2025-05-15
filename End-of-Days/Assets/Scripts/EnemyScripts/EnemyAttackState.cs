@@ -63,7 +63,7 @@ public class EnemyAttackState : StateMachineBehaviour
     {
         var damageToInflict = attackController.unitDamage;
 
-        SoundManager.Instance.PlayMeleeAttackSound();
+        SoundManager.Instance.PlayZombieAttackSound();
 
         var damageable = attackController.targetToAttack.GetComponent<IDamageable>();
         if (damageable != null)

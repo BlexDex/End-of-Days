@@ -38,7 +38,7 @@ namespace DenisAlipov.GameTime
             {
                 if(!hasRun)
                 {
-                    ResourceManager.Instance.IncreaseResource(ResourceManager.ResourceType.Credits, 50);
+                    ResourceManager.Instance.IncreaseResource(ResourceManager.ResourceType.Credits, 75);
                 }
                 hasRun = true;
                 return;

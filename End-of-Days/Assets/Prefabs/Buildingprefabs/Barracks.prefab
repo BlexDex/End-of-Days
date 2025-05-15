@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 4726149378752539077}
   - component: {fileID: 4338569904317512289}
   - component: {fileID: 2906851589667673744}
+  - component: {fileID: 3605782182981942566}
   m_Layer: 10
   m_Name: Button
   m_TagString: Untagged
@@ -247,10 +248,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8290145826996133629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.03360801, y: 0.10636784}
-  m_AnchorMax: {x: 0.42900002, y: 0.93965524}
-  m_AnchoredPosition: {x: -0.00018310547, y: 0.0000076293945}
-  m_SizeDelta: {x: 0.0003624, y: 0.000013351}
+  m_AnchorMin: {x: 0.033692036, y: 0.034578856}
+  m_AnchorMax: {x: 0.96518874, y: 0.96639955}
+  m_AnchoredPosition: {x: 0.009467125, y: 0}
+  m_SizeDelta: {x: -0.018936, y: 0.0000095367}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4726149378752539077
 CanvasRenderer:
@@ -330,13 +331,13 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 4338569904317512289}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1626601984982864597}
         m_TargetAssemblyTypeName: Barracks, Assembly-CSharp
-        m_MethodName: SpawnMeleeUnit
+        m_MethodName: SpawnUnit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -346,6 +347,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3605782182981942566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806152155222671382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c06790be8b1694f8d1b744eeebb262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: ' MELEE UNIT - ARMED WITH A BAT THESE UNITS ARE HERE TO KEEP YOUR SETTLEMENT
+    SAFE. COST : 50 FOOD'
 --- !u!1 &846926940237285360
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +509,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.4, y: -4.1}
-  m_SizeDelta: {x: 52.457, y: 26.259}
+  m_SizeDelta: {x: 24.765, y: 26.259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4409201888190956939
 CanvasRenderer:
@@ -594,8 +609,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d8518716c2c3a4d9e4cfaaa66de741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constMaxHealth: 500
+  constMaxHealth: 750
   healthTracker: {fileID: 868094071664833572}
+  destroyParticles: {fileID: 4365695951160919769, guid: 22b9687f3812db04b8f83d236cbe3752, type: 3}
   isEnemy: 0
   buildingType: 2
   buildPosition: {x: 0, y: 0, z: 0}
@@ -673,10 +689,10 @@ RectTransform:
   - {fileID: 408772607409998193}
   m_Father: {fileID: 4359111196444893056}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.015643815, y: 0.033483632}
-  m_AnchorMax: {x: 0.9821213, y: 0.96874887}
-  m_AnchoredPosition: {x: 0.0000019073486, y: -0.0000038146973}
-  m_SizeDelta: {x: 0.0000038147, y: 0}
+  m_AnchorMin: {x: 0.03246161, y: 0.035702877}
+  m_AnchorMax: {x: 0.96545935, y: 0.96974087}
+  m_AnchoredPosition: {x: 0.0000038146973, y: -0.029140472}
+  m_SizeDelta: {x: -0.0000019073, y: 0.058273}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &26210385815404046
 CanvasRenderer:
@@ -856,8 +872,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 30}
+  m_AnchoredPosition: {x: -1.4, y: -2.3}
+  m_SizeDelta: {x: 5.086, y: 2.482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8030492106119361138
 CanvasRenderer:

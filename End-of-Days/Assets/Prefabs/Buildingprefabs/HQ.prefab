@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 25, y: 0}
-  m_SizeDelta: {x: 100, y: 30}
+  m_AnchoredPosition: {x: 24.900013, y: -11.384001}
+  m_SizeDelta: {x: 6.895, y: 4.832}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7720932989187371157
 CanvasRenderer:
@@ -517,8 +517,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d8518716c2c3a4d9e4cfaaa66de741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constMaxHealth: 1000
+  constMaxHealth: 2000
   healthTracker: {fileID: 4554101571243932459}
+  destroyParticles: {fileID: 4365695951160919769, guid: 22b9687f3812db04b8f83d236cbe3752, type: 3}
   isEnemy: 0
   buildingType: 1
   buildPosition: {x: 0, y: 0, z: 0}

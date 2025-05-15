@@ -157,8 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d8518716c2c3a4d9e4cfaaa66de741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constMaxHealth: 100
+  constMaxHealth: 150
   healthTracker: {fileID: 186360781137509337}
+  destroyParticles: {fileID: 4365695951160919769, guid: 22b9687f3812db04b8f83d236cbe3752, type: 3}
   isEnemy: 0
   buildingType: 0
   buildPosition: {x: 0, y: 0, z: 0}

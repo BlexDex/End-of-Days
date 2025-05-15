@@ -98,7 +98,7 @@ public class PlacementState : IBuildingState
 
         foreach (var collider in colliders)
         {
-            if (collider.CompareTag("Unit") || collider.CompareTag("Enemy"))
+            if (collider.CompareTag("Unit") || collider.CompareTag("Enemy") || collider.CompareTag("Environment"))
             {
                 return false;
             }

@@ -74,9 +74,9 @@ public class Barracks : MonoBehaviour
 
     }
 
-    public void SpawnMeleeUnit()
+    public void SpawnUnit()
     {
-        ResourceManager.Instance.BuildMeleeUnit();
+        ResourceManager.Instance.DecreaseResource(ResourceManager.ResourceType.Food, 50);
         Instantiate(unit, buildingSpawnLoc.transform.position, Quaternion.identity);
     }
 

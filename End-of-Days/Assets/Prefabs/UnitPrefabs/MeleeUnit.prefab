@@ -1500,7 +1500,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f229b91f227e00747b8c7bb8f71d3a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitMaxHealth: 100
+  type: 0
+  unitMaxHealth: 150
+  deathParticles: {fileID: 6043280456144304848, guid: f68077079c54d864eb82edb6ec144e59, type: 3}
   healthTracker: {fileID: 8098184817600316865}
 --- !u!114 &909212672612201067
 MonoBehaviour:
@@ -1514,6 +1516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110eab6fcd9609c4eb1863a050b10fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   ground:
     serializedVersion: 2
     m_Bits: 64

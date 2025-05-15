@@ -125,15 +125,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3017362049196063313, guid: 02059cd708b6b484a9b48f99d5d22a9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.52263
+      value: 5.233664
       objectReference: {fileID: 0}
     - target: {fileID: 3017362049196063313, guid: 02059cd708b6b484a9b48f99d5d22a9a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000009536743
+      value: 0.17793871
       objectReference: {fileID: 0}
     - target: {fileID: 3017362049196063313, guid: 02059cd708b6b484a9b48f99d5d22a9a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.0940228
+      value: 13.932974
       objectReference: {fileID: 0}
     - target: {fileID: 3017362049196063313, guid: 02059cd708b6b484a9b48f99d5d22a9a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -183,6 +183,14 @@ PrefabInstance:
       propertyPath: buildingType
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5751181524181921418, guid: 02059cd708b6b484a9b48f99d5d22a9a, type: 3}
+      propertyPath: constMaxHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751181524181921418, guid: 02059cd708b6b484a9b48f99d5d22a9a, type: 3}
+      propertyPath: destroyParticles
+      value: 
+      objectReference: {fileID: 4365695951160919769, guid: 22b9687f3812db04b8f83d236cbe3752, type: 3}
     m_RemovedComponents:
     - {fileID: 1626601984982864597, guid: 02059cd708b6b484a9b48f99d5d22a9a, type: 3}
     m_RemovedGameObjects:
